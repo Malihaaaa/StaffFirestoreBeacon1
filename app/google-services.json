@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "679684652175",
+    "project_id": "designbuild2-6d4a8",
+    "storage_bucket": "designbuild2-6d4a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679684652175:android:3a83595edaf32d64d084fa",
+        "android_client_info": {
+          "package_name": "dtu.engtech.estimoteproximity103"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARQ3Cw2QlTGJR8WRnfzpvFxMYCNvPSHmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679684652175:android:1f7d6598ffdb796cd084fa",
+        "android_client_info": {
+          "package_name": "dtu.engtech.iabr.stafffirestorebeacons"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARQ3Cw2QlTGJR8WRnfzpvFxMYCNvPSHmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679684652175:android:cb19a5183c59ea51d084fa",
+        "android_client_info": {
+          "package_name": "dtu.engtech.iabr.stateincompose"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARQ3Cw2QlTGJR8WRnfzpvFxMYCNvPSHmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679684652175-qg68fh43ut65so2ee2e5i8nral0tgmlr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
