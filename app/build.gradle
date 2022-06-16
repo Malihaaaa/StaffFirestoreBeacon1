@@ -48,6 +48,10 @@ android {
 
 dependencies {
 
+    def nav_version = "2.4.2"
+
+    implementation("androidx.navigation:navigation-compose:$nav_version")
+
     implementation 'com.estimote:proximity-sdk:1.0.5'
     implementation 'com.estimote:mustard:0.2.1'
 
