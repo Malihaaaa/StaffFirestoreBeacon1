@@ -8,8 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dtu.engtech.iabr.stafffirestorebeacons.model.StaffMember
 
+//nedenstående bliver ikke brugt, men skulle blive vist på UI(virker ikke)
 @Composable
 fun StaffCard(
+
     staffMember: StaffMember,
     modifier: Modifier = Modifier
 ) {

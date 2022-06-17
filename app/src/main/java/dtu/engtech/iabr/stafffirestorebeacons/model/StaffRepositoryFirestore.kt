@@ -16,9 +16,8 @@ class StaffRepositoryFirestore : StaffRepository {
             .get()
             .addOnSuccessListener { documents ->
                 staff = documents.toObjects(StaffMember::class.java).toMutableStateList()
-                logCatStaff("getStaffMember")
+                logCatStaff("Lokation opdateret")
                 for (document in documents) {
-                    //Log.d(FirestoreBeaconConstants.FIREBASELOGTAG, "Number of documents => ${documents.size()}")
                     Log.d(
                         FirestoreBeaconConstants.FIREBASELOGTAG,
                         "${document.id} => ${document.data}"
@@ -38,7 +37,7 @@ class StaffRepositoryFirestore : StaffRepository {
 
                 if (snapshot != null) {
                     staff = snapshot.toObjects(StaffMember::class.java).toMutableStateList()
-                    logCatStaff("Initial read")
+                    logCatStaff("Lokation fra databasen")
 
                 } else {
                     Log.d(FirestoreBeaconConstants.FIREBASELOGTAG, "Current data: null")

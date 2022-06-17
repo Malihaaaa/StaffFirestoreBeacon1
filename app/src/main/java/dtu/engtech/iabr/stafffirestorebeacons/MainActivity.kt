@@ -82,6 +82,7 @@ import androidx.compose.ui.graphics.Color.Companion.Black
 import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.Red
 import androidx.compose.ui.text.style.TextAlign
+import dtu.engtech.iabr.stafffirestorebeacons.ui.StaffCard
 import dtu.engtech.iabr.stafffirestorebeacons.ui.theme.*
 
 
@@ -118,6 +119,7 @@ class MainActivity : ComponentActivity() {
                     NavDemo(location)
 
 
+
                 }
 
             }
@@ -134,9 +136,7 @@ class MainActivity : ComponentActivity() {
         )
 
         staffViewModel.staffRepository.addListener()
-        //testFirebaseSetStaff("V2.02")
-        //testFirebaseGetStaff("501")
-        //testFirebaseGet()
+
 
     }
 
@@ -166,14 +166,14 @@ class MainActivity : ComponentActivity() {
                 Log.d(FirestoreBeaconConstants.BEACONLOGTAG, "Enter: ${it.tag}")
                 staffViewModel.getStaff(it.tag)
                 testFirebaseSetStaff(it.tag)
-                //  staffViewModel.setStaff(it.tag)
+
             }
             .onExit {
                 Log.d(FirestoreBeaconConstants.BEACONLOGTAG, "Exit: ${it.tag}")
             }
             .onContextChange {
                 Log.d(FirestoreBeaconConstants.BEACONLOGTAG, "Change: ${it}")
-                // zoneEventViewModel.updateZoneContexts(it)
+
             }
             .build()
     }
@@ -267,6 +267,7 @@ class MainActivity : ComponentActivity() {
 }
 
 
+
 @Composable
 fun NavDemo(location: String){
 
@@ -279,6 +280,7 @@ fun NavDemo(location: String){
         composable("MyButton") {
             MyButton(navController = navController, location = location)
         }
+
         composable("RødAlarm/{staffLocation}")
         {
             RødAlarm(navController = navController, it.arguments?.getString("staffLocation")?:"Test location")
@@ -309,10 +311,11 @@ Column(
 
     Modifier
         .fillMaxWidth()
-        .background(dtu.engtech.iabr.stafffirestorebeacons.ui.theme.Gray)
+        .fillMaxHeight()
+        .background(color=Gray)
         .absolutePadding(10.dp, 50.dp, 10.dp, 0.dp), horizontalAlignment = Alignment.CenterHorizontally){
 
-    Text(text = "Tryk på knap ud fra niveau af akutsituation", fontSize = 17.sp, fontWeight = FontWeight.Bold, color = Hvid)
+    Text(text = "Tryk på knap ud fra niveau af akutsituation", fontSize = 20.sp, fontWeight = FontWeight.Bold, color = Hvid, textAlign = TextAlign.Center)
 
 
 
@@ -328,7 +331,7 @@ Column(
         )
         {
             Text(
-                text = "Nødknap 1", fontSize = 20.sp, color = Hvid)
+                text = "Nødknap 1", fontSize = 20.sp, color = Hvid, textAlign = TextAlign.Center)
             Modifier.padding(12.dp)
 
         }
@@ -346,7 +349,7 @@ Column(
         )
         {
             Text(
-                text = "Nødknap 2", fontSize = 20.sp, color = Hvid )
+                text = "Nødknap 2", fontSize = 20.sp, color = Hvid, textAlign = TextAlign.Center)
             Modifier.padding(12.dp)
 
         }
@@ -361,7 +364,7 @@ Column(
                 .size(150.dp)
         ) {
             Text(
-                text = "Nødknap 3", fontSize = 20.sp, color = Hvid)
+                text = "Nødknap 3", fontSize = 20.sp, color = Hvid, textAlign = TextAlign.Center)
             Modifier.padding(40.dp)
 
         }
@@ -373,7 +376,7 @@ Column(
 }
 
 
-@Composable
+@Composable // Rød alaram er den funktion der burde tage den opdatreret lokation fra db til ui (det virker ikke)
 fun RødAlarm(
     navController: NavController,
     //TO DO ÆNDRE HARD CODED
@@ -452,10 +455,7 @@ fun SignInScreen(navController: NavController) {
                             singleLine = true,
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
                             visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
-                           // trailingIcon = {
-                                //IconButton(onClick = { isPasswordVisible = !isPasswordVisible }) {
-                              //  }
-                           // }
+
                         )
                         Spacer(modifier = Modifier.height(16.dp))
                         Button(
@@ -474,8 +474,7 @@ fun SignInScreen(navController: NavController) {
                             TextButton(onClick = {}) {
                                 Text(text = "Sign Up")
                             }
-                            //TextButton(onClick = { }) {
-                               // Text(text = "Forgot Password?", color =Color.GRAY)
+
                             }
                         }
                     }
@@ -488,12 +487,14 @@ fun SignInScreen(navController: NavController) {
 fun modtager(navController: NavController) {
     Column(
         Modifier
+            .fillMaxHeight()
+            .background(color=Gray)
             .fillMaxWidth()
             .absolutePadding(10.dp, 50.dp, 10.dp, 0.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Spacer(modifier = Modifier.height(60.dp))
+        Spacer(modifier = Modifier.height(100.dp))
         Box(Modifier.align(Alignment.CenterHorizontally)) {
             Button(
                 onClick = { navController.navigate("modtagerAfvis") },
@@ -518,17 +519,9 @@ fun modtager(navController: NavController) {
 
         Spacer(modifier = Modifier.height(35.dp))
         Box() {
-            /*Button(
-                onClick = { /*TODO*/ },
-                colors = ButtonDefaults.buttonColors(backgroundColor = Graa),
-                modifier = Modifier
-                    .height(90.dp)
-                    .width(300.dp)
-            )
-            {
-             */
+
             Text(
-                text = "Katrine T. - Stue 306", fontSize = 25.sp, color = dtu.engtech.iabr.stafffirestorebeacons.ui.theme.Black
+                text = "Katrine T. - Stue 6", fontSize = 25.sp, color = Hvid
             )
             Modifier
                 .padding(12.dp)
@@ -586,7 +579,10 @@ fun modtagerAccept(navController: NavController) {
     ) {
 
         Spacer(modifier = Modifier.height(170.dp))
-        Box(Modifier.align(Alignment.CenterHorizontally) .border(BorderStroke(11.dp, Hvid))) {
+        Box(
+            Modifier
+                .align(Alignment.CenterHorizontally)
+                .border(BorderStroke(11.dp, Hvid))) {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Graa),
@@ -629,7 +625,10 @@ fun modtagerAfvis(navController: NavController) {
     ) {
 
         Spacer(modifier = Modifier.height(170.dp))
-        Box(Modifier.align(Alignment.CenterHorizontally) .border(BorderStroke(11.dp, Hvid))) {
+        Box(
+            Modifier
+                .align(Alignment.CenterHorizontally)
+                .border(BorderStroke(11.dp, Hvid))) {
             Button(
                 onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(backgroundColor = Graa),
@@ -649,195 +648,29 @@ fun modtagerAfvis(navController: NavController) {
             }
         }
 
+
+    Spacer(modifier = Modifier.height(395.dp))
+    Box() {
+        Button(
+            onClick = { navController.navigate("MyButton")},
+            colors = ButtonDefaults.buttonColors(backgroundColor = Gray),
+            modifier = Modifier
+                .height(50.dp)
+                .fillMaxWidth()
+
+
+        )
+        {
+            Text(
+                text = "Prøv igen", fontSize = 20.sp, color = Hvid )
+            Modifier.padding(12.dp)
+
+        }
     }
+    }
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

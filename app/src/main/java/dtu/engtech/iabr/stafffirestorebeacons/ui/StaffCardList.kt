@@ -10,6 +10,7 @@ import dtu.engtech.iabr.stafffirestorebeacons.model.StaffMember
 
 @Composable
 fun StaffCardList(
+
     list: List<StaffMember>,
     modifier: Modifier = Modifier
 ) {

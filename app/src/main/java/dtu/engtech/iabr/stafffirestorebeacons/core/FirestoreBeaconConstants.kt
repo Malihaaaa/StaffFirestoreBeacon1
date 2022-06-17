@@ -9,5 +9,5 @@ object FirestoreBeaconConstants {
 
     const val FIREBASELOGTAG = "firebase"
     const val BEACONLOGTAG = "beacon"
-    const val STAFFID = 8
+
 }
